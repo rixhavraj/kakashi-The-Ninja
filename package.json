@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "node ./scripts/run-vite.mjs dev",
-    "build": "node ./scripts/run-vite.mjs build",
+    "dev": "node init && node ./scripts/run-vite.mjs dev",
+    "build": "node init && node ./scripts/run-vite.mjs build",
     "preview": "node ./scripts/run-vite.mjs preview",
-    "build:crazygames": "npm run build",
+    "build:crazygames": "node init && npm run build",
     "crazygames:package": "powershell -NoProfile -Command \"Remove-Item dist.zip -ErrorAction SilentlyContinue; Compress-Archive -Path dist/* -DestinationPath dist.zip\"",
     "crazygames:cache-assets": "node ./scripts/cache-remote-assets.mjs"
   },
