@@ -119,7 +119,7 @@ export class BaseLevelScene extends Phaser.Scene {
       const knockbackForce = player.x < enemy.x ? -200 : 200
       player.body.setVelocityX(knockbackForce)
       
-      player.takeDamage(20)
+      player.takeDamage(10)
     })
   }
 
@@ -129,7 +129,7 @@ export class BaseLevelScene extends Phaser.Scene {
   }
 
   getEnemyHealthBonus() {
-    return Math.max(0, this.getLevelNumber() - 1) * 15
+    return Math.max(0, this.getLevelNumber() - 1) * 8
   }
 
   addEnemy(x, y) {
@@ -199,7 +199,7 @@ export class BaseLevelScene extends Phaser.Scene {
           let damage = 20
           if (this.player.isPunching) damage = 20
           else if (this.player.isKicking) damage = 25
-          else if (this.player.isChidori) damage = 50 // Kakashi Chidori deals massive damage
+          else if (this.player.isChidori) damage = 9999 // Kakashi Chidori is a guaranteed one-hit kill
           else if (this.player.isSharingan) damage = 9999 // Kakashi Sharingan directly kills
           
           // Finally call takeDamage
@@ -225,7 +225,7 @@ export class BaseLevelScene extends Phaser.Scene {
             player.body.setVelocityX(knockbackForce)
             
             // Finally call takeDamage
-            player.takeDamage(15)
+            player.takeDamage(8)
           }
         }
       )
