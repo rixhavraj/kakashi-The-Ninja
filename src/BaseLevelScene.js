@@ -22,12 +22,7 @@ export class BaseLevelScene extends Phaser.Scene {
     "Level2Scene",
     "Level3Scene",
     "Level4Scene",
-    "Level5Scene",
-    "Level6Scene",
-    "Level7Scene",
-    "Level8Scene",
-    "Level9Scene",
-    "Level10Scene"
+    "Level5Scene"
   ]
 
   // Get next level scene key
@@ -68,6 +63,10 @@ export class BaseLevelScene extends Phaser.Scene {
     this.decorations = this.add.group()
     this.createDecorations()
 
+    // Create solid level obstacles
+    this.obstacles = this.add.group()
+    this.createObstacles()
+
     // Create enemies
     this.enemies = this.add.group()
     this.createEnemies()
@@ -106,6 +105,12 @@ export class BaseLevelScene extends Phaser.Scene {
     // Enemy collision with ground
     this.physics.add.collider(this.enemies, this.groundLayer)
 
+    // Solid obstacles block both player and enemies
+    if (this.obstacles.getLength() > 0) {
+      this.physics.add.collider(this.player, this.obstacles)
+      this.physics.add.collider(this.enemies, this.obstacles)
+    }
+
     // Player takes damage when colliding with enemies
     this.physics.add.overlap(this.player, this.enemies, (player, enemy) => {
       if (player.isInvulnerable || player.isHurting || player.isDead || enemy.isDead) return
@@ -116,6 +121,38 @@ export class BaseLevelScene extends Phaser.Scene {
       
       player.takeDamage(20)
     })
+  }
+
+  getLevelNumber() {
+    const levelMatch = this.scene.key.match(/\d+/)
+    return levelMatch ? Number(levelMatch[0]) : 1
+  }
+
+  getEnemyHealthBonus() {
+    return Math.max(0, this.getLevelNumber() - 1) * 15
+  }
+
+  addEnemy(x, y) {
+    const enemy = new SoundNinja(this, x, y, {
+      healthBonus: this.getEnemyHealthBonus(),
+    })
+    this.enemies.add(enemy)
+    return enemy
+  }
+
+  createObstacles() {
+    const obstacleDefinitions = this.getObstacleDefinitions()
+
+    obstacleDefinitions.forEach(({ x, y, width, height, color = 0x7f5539 }) => {
+      const obstacle = this.add.rectangle(x, y, width, height, color)
+      obstacle.setStrokeStyle(4, 0x2d6a4f)
+      this.physics.add.existing(obstacle, true)
+      this.obstacles.add(obstacle)
+    })
+  }
+
+  getObstacleDefinitions() {
+    return []
   }
 
   setupInputs() {

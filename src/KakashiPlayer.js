@@ -26,6 +26,8 @@ export class KakashiPlayer extends Phaser.Physics.Arcade.Sprite {
     this.isInvulnerable = false // Invulnerable state
     this.hurtingDuration = kakashiConfig.hurtingDuration.value // Hurt stun duration
     this.invulnerableTime = kakashiConfig.invulnerableTime.value // Invulnerability time
+    this.chidoriCooldown = 3000
+    this.lastChidoriTime = -Infinity
     
     // Attack target tracking system
     this.currentMeleeTargets = new Set() // Track currently hit targets
@@ -335,11 +337,12 @@ export class KakashiPlayer extends Phaser.Physics.Arcade.Sprite {
     }
 
     // L key Chidori attack
-    if (Phaser.Input.Keyboard.JustDown(keys.L) && !this.isChidori) {
+    if (Phaser.Input.Keyboard.JustDown(keys.L) && !this.isChidori && this.canUseChidori()) {
       // Clear attack target records, start new attack
       this.currentMeleeTargets.clear()
       this.updateMeleeTrigger()
       this.isChidori = true
+      this.lastChidoriTime = this.scene.time.now
 
       // Chidori needs forward dash
       const dashSpeed = this.facingDirection === "right" ? 400 : -400
@@ -371,6 +374,10 @@ export class KakashiPlayer extends Phaser.Physics.Arcade.Sprite {
     if (Phaser.Input.Keyboard.JustDown(keys.U) && !this.isSharingan) {
       this.useSharingan()
     }
+  }
+
+  canUseChidori() {
+    return this.scene.time.now - this.lastChidoriTime >= this.chidoriCooldown
   }
 
   handleMovement(keys) {
