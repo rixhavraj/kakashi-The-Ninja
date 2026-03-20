@@ -199,7 +199,7 @@ export class BaseLevelScene extends Phaser.Scene {
           let damage = 20
           if (this.player.isPunching) damage = 20
           else if (this.player.isKicking) damage = 25
-          else if (this.player.isChidori) damage = 50 // Kakashi Chidori deals massive damage
+          else if (this.player.isChidori) damage = 9999 // Kakashi Chidori is a guaranteed one-hit kill
           else if (this.player.isSharingan) damage = 9999 // Kakashi Sharingan directly kills
           
           // Finally call takeDamage
