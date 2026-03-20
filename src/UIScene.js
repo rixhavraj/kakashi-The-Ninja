@@ -1,4 +1,5 @@
 import Phaser from 'phaser'
+import { BaseLevelScene } from './BaseLevelScene.js'
 import { screenSize } from './gameConfig.json'
 
 export class UIScene extends Phaser.Scene {
@@ -15,8 +16,10 @@ export class UIScene extends Phaser.Scene {
     // Create control hints
     this.createControlsHint()
     
-    // Get reference to game scene
-    this.gameScene = this.scene.get('Level1Scene') || this.scene.get('Level2Scene')
+    // Track the currently active level scene dynamically so the health bar
+    // follows the active player across all levels and restarts.
+    this.gameScene = null
+    this.refreshGameScene()
   }
 
   createHealthBar() {
@@ -68,7 +71,18 @@ export class UIScene extends Phaser.Scene {
     this.healthBar.fillRect(22, 22, (196 * healthPercentage / 100), 16)
   }
 
+  refreshGameScene() {
+    this.gameScene = BaseLevelScene.LEVEL_ORDER
+      .map((sceneKey) => this.scene.get(sceneKey))
+      .find((scene) => scene && scene.scene.isActive() && scene.player)
+      || null
+  }
+
   update() {
+    if (!this.gameScene || !this.gameScene.scene.isActive() || !this.gameScene.player) {
+      this.refreshGameScene()
+    }
+
     // Update health display
     if (this.gameScene && this.gameScene.player) {
       const healthPercentage = this.gameScene.player.getHealthPercentage()

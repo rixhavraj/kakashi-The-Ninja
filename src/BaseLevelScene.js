@@ -119,7 +119,7 @@ export class BaseLevelScene extends Phaser.Scene {
       const knockbackForce = player.x < enemy.x ? -200 : 200
       player.body.setVelocityX(knockbackForce)
       
-      player.takeDamage(20)
+      player.takeDamage(10)
     })
   }
 
@@ -129,7 +129,7 @@ export class BaseLevelScene extends Phaser.Scene {
   }
 
   getEnemyHealthBonus() {
-    return Math.max(0, this.getLevelNumber() - 1) * 15
+    return Math.max(0, this.getLevelNumber() - 1) * 8
   }
 
   addEnemy(x, y) {
@@ -225,7 +225,7 @@ export class BaseLevelScene extends Phaser.Scene {
             player.body.setVelocityX(knockbackForce)
             
             // Finally call takeDamage
-            player.takeDamage(15)
+            player.takeDamage(8)
           }
         }
       )
