@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "node ./scripts/run-vite.mjs dev",
-    "build": "node ./scripts/run-vite.mjs build",
+    "dev": "node api.js && node ./scripts/run-vite.mjs dev",
+    "build": "node api.js && node ./scripts/run-vite.mjs build",
     "preview": "node ./scripts/run-vite.mjs preview",
     "build:crazygames": "npm run build",
     "crazygames:package": "powershell -NoProfile -Command \"Remove-Item dist.zip -ErrorAction SilentlyContinue; Compress-Archive -Path dist/* -DestinationPath dist.zip\"",
