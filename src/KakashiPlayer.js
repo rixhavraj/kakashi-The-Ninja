@@ -1,6 +1,7 @@
 import Phaser from 'phaser'
 import { createTrigger } from './utils.js'
 import { kakashiConfig } from './gameConfig.json'
+import { crazyGamesGameplayStop } from './crazyGamesHelper.js'
 
 export class KakashiPlayer extends Phaser.Physics.Arcade.Sprite {
   constructor(scene, x, y) {
@@ -281,6 +282,7 @@ export class KakashiPlayer extends Phaser.Physics.Arcade.Sprite {
       this.dieSound.play()
       this.once(Phaser.Animations.Events.ANIMATION_COMPLETE, (animation, frame) => {
         if (animation.key === "kakashi_die_anim") {
+          crazyGamesGameplayStop()
           this.scene.scene.launch("GameOverUIScene", { 
             currentLevelKey: this.scene.scene.key 
           })
@@ -289,6 +291,7 @@ export class KakashiPlayer extends Phaser.Physics.Arcade.Sprite {
     } else if(this.y > this.scene.mapHeight + 100 && !this.isDead) { 
       this.health = 0
       this.isDead = true
+      crazyGamesGameplayStop()
       this.scene.scene.launch("GameOverUIScene", { 
         currentLevelKey: this.scene.scene.key 
       })

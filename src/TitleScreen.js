@@ -1,5 +1,6 @@
 import Phaser from 'phaser'
 import { screenSize } from './gameConfig.json'
+import { crazyGamesGameplayStop } from './crazyGamesHelper.js'
 
 export class TitleScreen extends Phaser.Scene {
   constructor() {
@@ -23,6 +24,7 @@ export class TitleScreen extends Phaser.Scene {
     this.createUI()
     this.setupInputs()
     this.playBackgroundMusic()
+    crazyGamesGameplayStop()
   }
 
   // Create background (use level 1 background)

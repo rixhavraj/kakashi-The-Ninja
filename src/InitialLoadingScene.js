@@ -1,6 +1,7 @@
 import Phaser from 'phaser'
 import { screenSize } from './gameConfig.json'
 import { setupLoadingProgressUI } from './utils.js'
+import { crazyGamesLoadingStart, crazyGamesLoadingStop, crazyGamesGameplayStop } from './crazyGamesHelper.js'
 
 export class InitialLoadingScene extends Phaser.Scene {
   constructor() {
@@ -12,6 +13,8 @@ export class InitialLoadingScene extends Phaser.Scene {
   preload() {
     // Setup loading progress bar UI
     setupLoadingProgressUI(this)
+    crazyGamesGameplayStop()
+    crazyGamesLoadingStart()
     
     // Load asset pack by type
     this.load.pack('assetPack', 'assets/asset-pack.json')
@@ -34,6 +37,7 @@ export class InitialLoadingScene extends Phaser.Scene {
 
     // Switch to title screen after brief delay
     this.time.delayedCall(1000, () => {
+      crazyGamesLoadingStop()
       this.cameras.main.fadeOut(500, 0, 0, 0)
       this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
         this.scene.start('TitleScreen')

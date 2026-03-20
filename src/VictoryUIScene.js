@@ -1,12 +1,13 @@
 import Phaser from 'phaser'
-import { BaseLevelScene } from './BaseLevelScene'
 import { screenSize } from './gameConfig.json'
+import { crazyGamesGameplayStop, crazyGamesRequestMidgameAd } from './crazyGamesHelper.js'
 
 export class VictoryUIScene extends Phaser.Scene {
   constructor() {
     super({
       key: "VictoryUIScene",
     })
+    this.transitioning = false
   }
 
   init(data) {
@@ -16,6 +17,7 @@ export class VictoryUIScene extends Phaser.Scene {
   create() {
     // Pause main game scene
     this.scene.pause(this.currentLevelKey)
+    crazyGamesGameplayStop()
     
     // Create semi-transparent black overlay
     const screenWidth = screenSize.width.value
@@ -65,21 +67,28 @@ export class VictoryUIScene extends Phaser.Scene {
   }
 
   goToNextLevel() {
-    // Play click sound effect
+    if (this.transitioning) return
+    this.transitioning = true
+
     this.sound.play("ui_click_sound", { volume: 0.3 })
-    
-    // Get next level
+
+    crazyGamesRequestMidgameAd({
+      onAdFinished: () => {
+        this.transitionToNextScene()
+      }
+    })
+  }
+
+  transitionToNextScene() {
     const currentScene = this.scene.get(this.currentLevelKey)
     const nextLevelKey = currentScene.getNextLevelScene()
-    
+
     if (nextLevelKey) {
-      // Stop current scene and start next level
       this.scene.stop(this.currentLevelKey)
       this.scene.stop("UIScene")
       this.scene.stop()
       this.scene.start(nextLevelKey)
     } else {
-      // If no next level, return to title screen
       this.scene.stop(this.currentLevelKey)
       this.scene.stop("UIScene")
       this.scene.stop()

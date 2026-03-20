@@ -1,11 +1,13 @@
 import Phaser from 'phaser'
 import { screenSize } from './gameConfig.json'
+import { crazyGamesGameplayStop, crazyGamesRequestMidgameAd } from './crazyGamesHelper.js'
 
 export class GameCompleteUIScene extends Phaser.Scene {
   constructor() {
     super({
       key: "GameCompleteUIScene",
     })
+    this.transitioning = false
   }
 
   init(data) {
@@ -15,6 +17,7 @@ export class GameCompleteUIScene extends Phaser.Scene {
   create() {
     // Pause main game scene
     this.scene.pause(this.currentLevelKey)
+    crazyGamesGameplayStop()
     
     // Create semi-transparent black overlay
     const screenWidth = screenSize.width.value
@@ -85,13 +88,18 @@ export class GameCompleteUIScene extends Phaser.Scene {
   }
 
   returnToMenu() {
-    // Play click sound effect
+    if (this.transitioning) return
+    this.transitioning = true
+
     this.sound.play("ui_click_sound", { volume: 0.3 })
-    
-    // Stop all scenes and return to title screen
-    this.scene.stop(this.currentLevelKey)
-    this.scene.stop("UIScene")
-    this.scene.stop()
-    this.scene.start("TitleScreen")
+
+    crazyGamesRequestMidgameAd({
+      onAdFinished: () => {
+        this.scene.stop(this.currentLevelKey)
+        this.scene.stop("UIScene")
+        this.scene.stop()
+        this.scene.start("TitleScreen")
+      }
+    })
   }
 }

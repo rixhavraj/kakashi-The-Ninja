@@ -1,9 +1,8 @@
 import Phaser from 'phaser'
 import { KakashiPlayer } from './KakashiPlayer.js'
-
-
 import { SoundNinja } from './SoundNinja.js'
 import { screenSize } from './gameConfig.json'
+import { crazyGamesGameplayStart, crazyGamesGameplayStop } from './crazyGamesHelper.js'
 
 export class BaseLevelScene extends Phaser.Scene {
   constructor(config) {
@@ -92,6 +91,7 @@ export class BaseLevelScene extends Phaser.Scene {
 
     // Show UI
     this.scene.launch("UIScene")
+    crazyGamesGameplayStart()
   }
 
   setupBaseCollisions() {
@@ -235,6 +235,7 @@ export class BaseLevelScene extends Phaser.Scene {
     // If all enemies are defeated, launch corresponding UI scene
     if (currentEnemyCount === 0 && !this.gameCompleted) {
       this.gameCompleted = true
+      crazyGamesGameplayStop()
 
       if (this.isLastLevel()) {
         console.log("Game completed!")

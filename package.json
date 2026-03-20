@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "build:crazygames": "vite build"
+    "dev": "node ./scripts/run-vite.mjs dev",
+    "build": "node ./scripts/run-vite.mjs build",
+    "preview": "node ./scripts/run-vite.mjs preview",
+    "build:crazygames": "npm run build",
+    "crazygames:package": "powershell -NoProfile -Command \"Remove-Item dist.zip -ErrorAction SilentlyContinue; Compress-Archive -Path dist/* -DestinationPath dist.zip\"",
+    "crazygames:cache-assets": "node ./scripts/cache-remote-assets.mjs"
   },
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
@@ -16,5 +18,9 @@
   },
   "devDependencies": {
     "vite": "^8.0.0"
-  }
+  },
+  "description": "Phaser + Vite side-scrolling action game.",
+  "main": "vite.config.js",
+  "author": "",
+  "license": "ISC"
 }

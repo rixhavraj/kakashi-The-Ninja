@@ -1,5 +1,6 @@
 import Phaser from 'phaser'
 import { screenSize } from './gameConfig.json'
+import { crazyGamesGameplayStop } from './crazyGamesHelper.js'
 
 export class GameOverUIScene extends Phaser.Scene {
   constructor() {
@@ -15,6 +16,7 @@ export class GameOverUIScene extends Phaser.Scene {
   create() {
     // Pause main game scene
     this.scene.pause(this.currentLevelKey)
+    crazyGamesGameplayStop()
     
     // Create semi-transparent black overlay
     const screenWidth = screenSize.width.value
