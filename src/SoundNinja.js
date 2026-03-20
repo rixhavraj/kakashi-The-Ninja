@@ -3,7 +3,7 @@ import { createTrigger } from './utils.js'
 import { soundNinjaConfig } from './gameConfig.json'
 
 export class SoundNinja extends Phaser.Physics.Arcade.Sprite {
-  constructor(scene, x, y) {
+  constructor(scene, x, y, options = {}) {
     super(scene, x, y, "sound_ninja_idle_frame1")
 
     // Add to scene and physics system
@@ -39,7 +39,7 @@ export class SoundNinja extends Phaser.Physics.Arcade.Sprite {
     this.currentMeleeTargets = new Set()
 
     // Health system
-    this.maxHealth = soundNinjaConfig.maxHealth.value
+    this.maxHealth = soundNinjaConfig.maxHealth.value + (options.healthBonus ?? 0)
     this.health = this.maxHealth
 
     // Set physics properties (side-scrolling needs gravity)
