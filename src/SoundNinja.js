@@ -26,6 +26,7 @@ export class SoundNinja extends Phaser.Physics.Arcade.Sprite {
     this.detectionRange = soundNinjaConfig.detectionRange.value
     this.attackRange = 80
     this.attackVerticalTolerance = 100
+    this.chaseVerticalTolerance = 96
     this.chaseDeadzone = 12
     this.lastAttackTime = 0
     this.attackCooldown = soundNinjaConfig.attackCooldown.value
@@ -214,6 +215,7 @@ export class SoundNinja extends Phaser.Physics.Arcade.Sprite {
     const withinAttackRange =
       absoluteHorizontalDistance <= this.attackRange &&
       absoluteVerticalDistance <= this.attackVerticalTolerance
+    const canSafelyChasePlayer = absoluteVerticalDistance <= this.chaseVerticalTolerance
 
     // State machine logic
     switch (this.aiState) {
@@ -226,6 +228,12 @@ export class SoundNinja extends Phaser.Physics.Arcade.Sprite {
         break
         
       case "chase":
+        if (!canSafelyChasePlayer) {
+          this.aiState = "patrol"
+          this.handlePatrol()
+          break
+        }
+
         this.handleChase(horizontalDistance, absoluteHorizontalDistance)
         // Detect attack range
         if (withinAttackRange && this.canAttack()) {
@@ -254,6 +262,10 @@ export class SoundNinja extends Phaser.Physics.Arcade.Sprite {
       this.facingDirection = "left"
     }
 
+    if (!this.canAdvance(this.facingDirection)) {
+      this.facingDirection = this.facingDirection === "left" ? "right" : "left"
+    }
+
     // Move
     const velocity = this.facingDirection === "left" ? -this.walkSpeed * 0.5 : this.walkSpeed * 0.5
     this.body.setVelocityX(velocity)
@@ -272,8 +284,18 @@ export class SoundNinja extends Phaser.Physics.Arcade.Sprite {
       return
     }
 
+    const desiredDirection = horizontalDistance < 0 ? "left" : "right"
+
+    if (!this.canAdvance(desiredDirection)) {
+      this.facingDirection = desiredDirection
+      this.body.setVelocityX(0)
+      this.play("sound_ninja_idle_anim", true)
+      this.resetOriginAndOffset()
+      return
+    }
+
     // Chase player
-    if (horizontalDistance < 0) {
+    if (desiredDirection === "left") {
       this.facingDirection = "left"
       this.body.setVelocityX(-this.walkSpeed)
     } else {
@@ -316,6 +338,19 @@ export class SoundNinja extends Phaser.Physics.Arcade.Sprite {
 
   canAttack() {
     return this.scene.time.now - this.lastAttackTime >= this.attackCooldown
+  }
+
+  canAdvance(direction) {
+    if (!this.body || !this.body.blocked.down || !this.scene.groundLayer) {
+      return true
+    }
+
+    const lookAhead = this.body.halfWidth + 12
+    const probeX = this.x + (direction === "left" ? -lookAhead : lookAhead)
+    const probeY = this.body.bottom + 8
+    const supportTile = this.scene.groundLayer.getTileAtWorldXY(probeX, probeY)
+
+    return Boolean(supportTile && supportTile.index !== -1 && supportTile.collides)
   }
 
   resetOriginAndOffset() {
