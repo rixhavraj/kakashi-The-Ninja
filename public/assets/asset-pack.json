@@ -25,6 +25,16 @@
         "type": "tilemapTiledJSON",
         "key": "level3_map",
         "url": "assets/crazy-cache/tilemaps/level1_map.json"
+      },
+      {
+        "type": "tilemapTiledJSON",
+        "key": "level4_map",
+        "url": "assets/crazy-cache/tilemaps/level1_map.json"
+      },
+      {
+        "type": "tilemapTiledJSON",
+        "key": "level5_map",
+        "url": "assets/crazy-cache/tilemaps/level1_map.json"
       }
     ]
   },
