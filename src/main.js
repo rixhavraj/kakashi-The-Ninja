@@ -1,5 +1,8 @@
 import Phaser from "phaser"
 import { screenSize, debugConfig, renderConfig } from "./gameConfig.json"
+import { initCrazyGamesSDK } from "./crazyGamesHelper.js"
+
+initCrazyGamesSDK() // Initialize the CrazyGames SDK
 
 // Import scenes
 import { InitialLoadingScene } from './InitialLoadingScene.js'
@@ -47,4 +50,9 @@ const config = {
     GameOverUIScene],
 }
 
-export default new Phaser.Game(config)
+const startGame = async () => {
+  await initCrazyGamesSDK() // Initialize the CrazyGames SDK fully first
+  new Phaser.Game(config)
+}
+
+startGame()

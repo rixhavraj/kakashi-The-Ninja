@@ -1,0 +1,23 @@
+fcc7878 deployment ready
+aab4cfb Add CrazyGames + Vercel deployment setup
+fdb9761 Merge pull request #8 from zabishh/feature/full-game-update
+9858573 Remove obstacle collisions for player
+ca6913f Merge pull request #7 from zabishh/feature/full-game-update
+a9976bb Hide visible obstacle boxes
+9e58983 Merge pull request #6 from zabishh/feature/full-game-update
+0acfd5b Fix Level 4 falling enemy blocker
+f15bf93 Merge pull request #5 from zabishh/feature/full-game-update
+0768912 Keep enemies on their home platforms
+3f581d3 Merge pull request #4 from zabishh/feature/full-game-update
+34c2dd2 Make Chidori a one-hit kill
+267d0e8 Fix UI health sync and nerf enemies
+48df2a3 Merge pull request #3 from zabishh/gameLevels
+af26dbe Expand progression and rebalance combat
+de1bdad Merge pull request #2 from zabishh/fix-sound-ninja-jitter
+124a3de Finalize deployment configuration
+ed5954b Prepare deployment for Vercel and CrazyGames
+9e24327 Fix Sound Ninja chase jitter
+e946ea5 vercel file
+b1574e6 completed
+6804fe3 Improved cordinates
+bd7e56e first commit

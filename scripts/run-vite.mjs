@@ -27,12 +27,15 @@ childProcess.exec = function patchedExec(command, options, callback) {
       setImmediate(() => normalizedCallback(null, '', ''))
     }
 
+    const { Readable, Writable } = require('node:stream')
     const fakeProcess = new EventEmitter()
     fakeProcess.kill = () => {}
-    fakeProcess.pid = 0
-    fakeProcess.stdin = null
-    fakeProcess.stdout = null
-    fakeProcess.stderr = null
+    fakeProcess.unref = () => {}
+    fakeProcess.ref = () => {}
+    fakeProcess.pid = 12345
+    fakeProcess.stdin = new Writable({ write(c, e, cb) { cb() } })
+    fakeProcess.stdout = new Readable({ read() { this.push(null) } })
+    fakeProcess.stderr = new Readable({ read() { this.push(null) } })
     return fakeProcess
   }
 

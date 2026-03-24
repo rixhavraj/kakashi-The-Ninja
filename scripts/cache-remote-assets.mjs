@@ -45,7 +45,8 @@ const copyRemoteAssetsLocally = async () => {
       if (!file.url || !file.url.startsWith('http')) continue
 
       const url = new URL(file.url)
-      const filename = path.basename(url.pathname)
+      const ext = path.extname(url.pathname)
+      const filename = file.key ? `${file.key}${ext}` : path.basename(url.pathname)
       const targetDir = path.join(cacheRoot, category)
       const targetPath = path.join(targetDir, filename)
       await fs.mkdir(targetDir, { recursive: true })

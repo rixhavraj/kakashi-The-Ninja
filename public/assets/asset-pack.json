@@ -2,7 +2,7 @@
   "fonts": {
     "files": [
       {
-        "url": "assets/crazy-cache/fonts/retro-pixel-arcade.otf.woff2",
+        "url": "assets/crazy-cache/fonts/RetroPixel.woff2",
         "type": "font",
         "key": "RetroPixel",
         "fontType": "opentype"
@@ -19,22 +19,12 @@
       {
         "type": "tilemapTiledJSON",
         "key": "level2_map",
-        "url": "assets/crazy-cache/tilemaps/level1_map.json"
+        "url": "assets/crazy-cache/tilemaps/level2_map.json"
       },
       {
         "type": "tilemapTiledJSON",
         "key": "level3_map",
-        "url": "assets/crazy-cache/tilemaps/level1_map.json"
-      },
-      {
-        "type": "tilemapTiledJSON",
-        "key": "level4_map",
-        "url": "assets/crazy-cache/tilemaps/level1_map.json"
-      },
-      {
-        "type": "tilemapTiledJSON",
-        "key": "level5_map",
-        "url": "assets/crazy-cache/tilemaps/level1_map.json"
+        "url": "assets/crazy-cache/tilemaps/level3_map.json"
       }
     ]
   },
@@ -57,7 +47,7 @@
       {
         "type": "image",
         "key": "konoha_village_background",
-        "url": "assets/crazy-cache/backgrounds/konoha_village_background_v2.png"
+        "url": "assets/crazy-cache/backgrounds/konoha_village_background.png"
       }
     ]
   },
@@ -75,142 +65,142 @@
       {
         "type": "image",
         "key": "kakashi_idle_frame1",
-        "url": "assets/crazy-cache/character_images/frame_1.png"
+        "url": "assets/crazy-cache/character_images/kakashi_idle_frame1.png"
       },
       {
         "type": "image",
         "key": "kakashi_idle_frame2",
-        "url": "assets/crazy-cache/character_images/frame_2.png"
+        "url": "assets/crazy-cache/character_images/kakashi_idle_frame2.png"
       },
       {
         "type": "image",
         "key": "kakashi_walk_frame1",
-        "url": "assets/crazy-cache/character_images/frame_2.png"
+        "url": "assets/crazy-cache/character_images/kakashi_walk_frame1.png"
       },
       {
         "type": "image",
         "key": "kakashi_walk_frame2",
-        "url": "assets/crazy-cache/character_images/frame_1.png"
+        "url": "assets/crazy-cache/character_images/kakashi_walk_frame2.png"
       },
       {
         "type": "image",
         "key": "kakashi_walk_frame3",
-        "url": "assets/crazy-cache/character_images/frame_3.png"
+        "url": "assets/crazy-cache/character_images/kakashi_walk_frame3.png"
       },
       {
         "type": "image",
         "key": "kakashi_walk_frame4",
-        "url": "assets/crazy-cache/character_images/frame_1.png"
+        "url": "assets/crazy-cache/character_images/kakashi_walk_frame4.png"
       },
       {
         "type": "image",
         "key": "kakashi_jump_frame1",
-        "url": "assets/crazy-cache/character_images/frame_1.png"
+        "url": "assets/crazy-cache/character_images/kakashi_jump_frame1.png"
       },
       {
         "type": "image",
         "key": "kakashi_jump_frame2",
-        "url": "assets/crazy-cache/character_images/frame_2.png"
+        "url": "assets/crazy-cache/character_images/kakashi_jump_frame2.png"
       },
       {
         "type": "image",
         "key": "kakashi_punch_frame1",
-        "url": "assets/crazy-cache/character_images/frame_1.png"
+        "url": "assets/crazy-cache/character_images/kakashi_punch_frame1.png"
       },
       {
         "type": "image",
         "key": "kakashi_punch_frame2",
-        "url": "assets/crazy-cache/character_images/frame_2.png"
+        "url": "assets/crazy-cache/character_images/kakashi_punch_frame2.png"
       },
       {
         "type": "image",
         "key": "kakashi_kick_frame1",
-        "url": "assets/crazy-cache/character_images/frame_1.png"
+        "url": "assets/crazy-cache/character_images/kakashi_kick_frame1.png"
       },
       {
         "type": "image",
         "key": "kakashi_kick_frame2",
-        "url": "assets/crazy-cache/character_images/frame_2.png"
+        "url": "assets/crazy-cache/character_images/kakashi_kick_frame2.png"
       },
       {
         "type": "image",
         "key": "kakashi_chidori_frame1",
-        "url": "assets/crazy-cache/character_images/frame_1.png"
+        "url": "assets/crazy-cache/character_images/kakashi_chidori_frame1.png"
       },
       {
         "type": "image",
         "key": "kakashi_chidori_frame2",
-        "url": "assets/crazy-cache/character_images/frame_2.png"
+        "url": "assets/crazy-cache/character_images/kakashi_chidori_frame2.png"
       },
       {
         "type": "image",
         "key": "kakashi_die_frame1",
-        "url": "assets/crazy-cache/character_images/frame_1.png"
+        "url": "assets/crazy-cache/character_images/kakashi_die_frame1.png"
       },
       {
         "type": "image",
         "key": "kakashi_die_frame2",
-        "url": "assets/crazy-cache/character_images/frame_2.png"
+        "url": "assets/crazy-cache/character_images/kakashi_die_frame2.png"
       },
       {
         "type": "image",
         "key": "kakashi_sharingan_frame1",
-        "url": "assets/crazy-cache/character_images/frame_1.png"
+        "url": "assets/crazy-cache/character_images/kakashi_sharingan_frame1.png"
       },
       {
         "type": "image",
         "key": "kakashi_sharingan_frame2",
-        "url": "assets/crazy-cache/character_images/frame_2.png"
+        "url": "assets/crazy-cache/character_images/kakashi_sharingan_frame2.png"
       },
       {
         "type": "image",
         "key": "sound_ninja_idle_frame1",
-        "url": "assets/crazy-cache/character_images/frame_1.png"
+        "url": "assets/crazy-cache/character_images/sound_ninja_idle_frame1.png"
       },
       {
         "type": "image",
         "key": "sound_ninja_idle_frame2",
-        "url": "assets/crazy-cache/character_images/frame_2.png"
+        "url": "assets/crazy-cache/character_images/sound_ninja_idle_frame2.png"
       },
       {
         "type": "image",
         "key": "sound_ninja_walk_frame1",
-        "url": "assets/crazy-cache/character_images/frame_2.png"
+        "url": "assets/crazy-cache/character_images/sound_ninja_walk_frame1.png"
       },
       {
         "type": "image",
         "key": "sound_ninja_walk_frame2",
-        "url": "assets/crazy-cache/character_images/frame_1.png"
+        "url": "assets/crazy-cache/character_images/sound_ninja_walk_frame2.png"
       },
       {
         "type": "image",
         "key": "sound_ninja_walk_frame3",
-        "url": "assets/crazy-cache/character_images/frame_3.png"
+        "url": "assets/crazy-cache/character_images/sound_ninja_walk_frame3.png"
       },
       {
         "type": "image",
         "key": "sound_ninja_walk_frame4",
-        "url": "assets/crazy-cache/character_images/frame_1.png"
+        "url": "assets/crazy-cache/character_images/sound_ninja_walk_frame4.png"
       },
       {
         "type": "image",
         "key": "sound_ninja_attack_frame1",
-        "url": "assets/crazy-cache/character_images/frame_1.png"
+        "url": "assets/crazy-cache/character_images/sound_ninja_attack_frame1.png"
       },
       {
         "type": "image",
         "key": "sound_ninja_attack_frame2",
-        "url": "assets/crazy-cache/character_images/frame_2.png"
+        "url": "assets/crazy-cache/character_images/sound_ninja_attack_frame2.png"
       },
       {
         "type": "image",
         "key": "sound_ninja_die_frame1",
-        "url": "assets/crazy-cache/character_images/frame_1.png"
+        "url": "assets/crazy-cache/character_images/sound_ninja_die_frame1.png"
       },
       {
         "type": "image",
         "key": "sound_ninja_die_frame2",
-        "url": "assets/crazy-cache/character_images/frame_2.png"
+        "url": "assets/crazy-cache/character_images/sound_ninja_die_frame2.png"
       }
     ]
   },
@@ -219,47 +209,47 @@
       {
         "type": "image",
         "key": "trees_variant_1",
-        "url": "assets/crazy-cache/decoration_images/variant_1.png"
+        "url": "assets/crazy-cache/decoration_images/trees_variant_1.png"
       },
       {
         "type": "image",
         "key": "trees_variant_2",
-        "url": "assets/crazy-cache/decoration_images/variant_2.png"
+        "url": "assets/crazy-cache/decoration_images/trees_variant_2.png"
       },
       {
         "type": "image",
         "key": "trees_variant_3",
-        "url": "assets/crazy-cache/decoration_images/variant_3.png"
+        "url": "assets/crazy-cache/decoration_images/trees_variant_3.png"
       },
       {
         "type": "image",
         "key": "rocks_variant_1",
-        "url": "assets/crazy-cache/decoration_images/variant_1.png"
+        "url": "assets/crazy-cache/decoration_images/rocks_variant_1.png"
       },
       {
         "type": "image",
         "key": "rocks_variant_2",
-        "url": "assets/crazy-cache/decoration_images/variant_2.png"
+        "url": "assets/crazy-cache/decoration_images/rocks_variant_2.png"
       },
       {
         "type": "image",
         "key": "bushes_variant_1",
-        "url": "assets/crazy-cache/decoration_images/variant_1.png"
+        "url": "assets/crazy-cache/decoration_images/bushes_variant_1.png"
       },
       {
         "type": "image",
         "key": "bushes_variant_2",
-        "url": "assets/crazy-cache/decoration_images/variant_2.png"
+        "url": "assets/crazy-cache/decoration_images/bushes_variant_2.png"
       },
       {
         "type": "image",
         "key": "grass_variant_1",
-        "url": "assets/crazy-cache/decoration_images/variant_1.png"
+        "url": "assets/crazy-cache/decoration_images/grass_variant_1.png"
       },
       {
         "type": "image",
         "key": "wooden_post_variant_1",
-        "url": "assets/crazy-cache/decoration_images/variant_1.png"
+        "url": "assets/crazy-cache/decoration_images/wooden_post_variant_1.png"
       }
     ]
   },
@@ -282,52 +272,52 @@
       {
         "type": "audio",
         "key": "ninja_jump_sound",
-        "url": "assets/crazy-cache/sound_effects/e22f27d0-6eb7-4570-92dd-25ff4021b14b_ninja_jump_sound.mp3"
+        "url": "assets/crazy-cache/sound_effects/ninja_jump_sound.mp3"
       },
       {
         "type": "audio",
         "key": "punch_sound",
-        "url": "assets/crazy-cache/sound_effects/63bd56f9-ddb2-4729-9113-d68b382a804e_punch_sound.mp3"
+        "url": "assets/crazy-cache/sound_effects/punch_sound.mp3"
       },
       {
         "type": "audio",
         "key": "kick_sound",
-        "url": "assets/crazy-cache/sound_effects/26b3e554-3c0c-40ac-9666-3709f135963b_kick_sound.mp3"
+        "url": "assets/crazy-cache/sound_effects/kick_sound.mp3"
       },
       {
         "type": "audio",
         "key": "chidori_sound",
-        "url": "assets/crazy-cache/sound_effects/0907a67b-56d4-4ba2-87a8-e1a060795bf1_chidori_sound.mp3"
+        "url": "assets/crazy-cache/sound_effects/chidori_sound.mp3"
       },
       {
         "type": "audio",
         "key": "ninja_hurt_sound",
-        "url": "assets/crazy-cache/sound_effects/5211c7fe-d726-4098-b739-1126245622cd_ninja_hurt_sound.mp3"
+        "url": "assets/crazy-cache/sound_effects/ninja_hurt_sound.mp3"
       },
       {
         "type": "audio",
         "key": "ninja_die_sound",
-        "url": "assets/crazy-cache/sound_effects/daa9bb9c-ef68-494c-a665-c048e8dd4bc0_ninja_die_sound.mp3"
+        "url": "assets/crazy-cache/sound_effects/ninja_die_sound.mp3"
       },
       {
         "type": "audio",
         "key": "ninja_slash_sound",
-        "url": "assets/crazy-cache/sound_effects/ba4c0792-9685-4609-ba56-da2bc2bfb5cf_ninja_slash_sound.mp3"
+        "url": "assets/crazy-cache/sound_effects/ninja_slash_sound.mp3"
       },
       {
         "type": "audio",
         "key": "game_over_sound",
-        "url": "assets/crazy-cache/sound_effects/89c0ede7-73de-418c-ab0a-761b9df6c41c_game_over_sound.mp3"
+        "url": "assets/crazy-cache/sound_effects/game_over_sound.mp3"
       },
       {
         "type": "audio",
         "key": "ui_click_sound",
-        "url": "assets/crazy-cache/sound_effects/b86ccff4-0702-414e-aa35-e075a7bed822_ui_click_sound.mp3"
+        "url": "assets/crazy-cache/sound_effects/ui_click_sound.mp3"
       },
       {
         "type": "audio",
         "key": "sharingan_distortion_sound",
-        "url": "assets/crazy-cache/sound_effects/4effa919-d77a-42a2-a535-62c4977096df_sharingan_distortion_sound.mp3"
+        "url": "assets/crazy-cache/sound_effects/sharingan_distortion_sound.mp3"
       }
     ]
   },
